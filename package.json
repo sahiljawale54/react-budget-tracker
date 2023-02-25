@@ -1,5 +1,6 @@
 {
   "name": "expense-tracker",
+  "homepage": "http://sahiljawale54.github.io/react-budget-tracker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
