@@ -134,7 +134,7 @@ Error generating stack: `+o.message+`
     width: unset;
     margin: 0 10px;
   }
-`,Om=e=>{const[t,n]=ae.useState(),[r,l]=ae.useState(),[o,i]=ae.useState("EXPENSE");return Le(Am,{isAddTxnVisible:e.isAddTxnVisible,children:[Le("form",{children:[me("input",{placeholder:"Amount",type:"number",value:t,onChange:u=>n(u.target.value),required:!0}),me("input",{placeholder:"Description",value:r,onChange:u=>l(u.target.value),required:!0}),Le(Lm,{children:[me("input",{type:"radio",id:"expense",name:"type",value:"EXPENSE",checked:o==="EXPENSE",onChange:u=>i(u.target.value)}),me("label",{htmlFor:"expense",children:"Expense"}),me("input",{type:"radio",id:"income",name:"type",value:"INCOME",checked:o==="INCOME",onChange:u=>i(u.target.value)}),me("label",{htmlFor:"Expense",children:"Income"})]})]}),me(qf,{onClick:()=>e.addTransaction({id:Date.now(),amount:Number(t),desc:r,type:o}),children:"Add Transaction"})]})},Im=e=>{const[t,n]=ae.useState(!1);return Le(Tm,{children:[Le(Rm,{children:["Balance: $",e.income-e.expense,me(qf,{onClick:()=>n(r=>!r),children:t?"CANCEL":"ADD"})]}),t&&me(Om,{isAddTxnVisible:t,addTransaction:r=>{e.addTransaction(r),n(l=>!l)}}),Le($m,{children:[Le($a,{children:["Expense",Le("span",{children:[" ₹",e.expense]})]}),Le($a,{isIncome:!0,children:["Income",Le("span",{children:[" ₹",e.income]})]})]})]})},Mm=lt.div`
+`,Om=e=>{const[t,n]=ae.useState(),[r,l]=ae.useState(),[o,i]=ae.useState("EXPENSE");return Le(Am,{isAddTxnVisible:e.isAddTxnVisible,children:[Le("form",{children:[me("input",{placeholder:"Amount",type:"number",value:t,onChange:u=>n(u.target.value),required:!0}),me("input",{placeholder:"Description",value:r,onChange:u=>l(u.target.value),required:!0}),Le(Lm,{children:[me("input",{type:"radio",id:"expense",name:"type",value:"EXPENSE",checked:o==="EXPENSE",onChange:u=>i(u.target.value)}),me("label",{htmlFor:"expense",children:"Expense"}),me("input",{type:"radio",id:"income",name:"type",value:"INCOME",checked:o==="INCOME",onChange:u=>i(u.target.value)}),me("label",{htmlFor:"Expense",children:"Income"})]})]}),me(qf,{onClick:()=>e.addTransaction({id:Date.now(),amount:Number(t),desc:r,type:o}),children:"Add Transaction"})]})},Im=e=>{const[t,n]=ae.useState(!1);return Le(Tm,{children:[Le(Rm,{children:["Balance: ₹",e.income-e.expense,me(qf,{onClick:()=>n(r=>!r),children:t?"CANCEL":"ADD"})]}),t&&me(Om,{isAddTxnVisible:t,addTransaction:r=>{e.addTransaction(r),n(l=>!l)}}),Le($m,{children:[Le($a,{children:["Expense",Le("span",{children:[" ₹",e.expense]})]}),Le($a,{isIncome:!0,children:["Income",Le("span",{children:[" ₹",e.income]})]})]})]})},Mm=lt.div`
   background-color: white;
   color: #0d1d2c;
   display: flex;
@@ -165,16 +165,16 @@ Error generating stack: `+o.message+`
   font-weight: normal;
   justify-content: space-between;
   border-right: 4px solid ${e=>e.isExpense?"red":"green"};
-`,jm=e=>{var t,n,r;return Le(Dm,{isExpense:((t=e.payload)==null?void 0:t.type)==="EXPENSE",children:[me("span",{children:(n=e.payload)==null?void 0:n.desc}),Le("span",{children:["$",(r=e.payload)==null?void 0:r.amount]})]})},Fm=e=>{const[t,n]=ae.useState(""),[r,l]=ae.useState(e.transactions),o=i=>{if(!i||!i.trim().length){l(e.transactions);return}let u=[...e.transactions];u=u.filter(s=>s.desc.toLowerCase().includes(i.toLowerCase().trim())),l(u)};return ae.useEffect(()=>{o(t)},[e.transactions]),Le(Mm,{children:["Transactions",me("input",{placeholder:"Search",onChange:i=>{n(i.target.value),o(i.target.value)}}),r==null?void 0:r.map(i=>me(jm,{payload:i}))]})},Um=lt.div`
-  background-color: white;
-  color: #0d1d2c;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 22px;
-  font-size: 18px;
-  width: 360px;
-  align-items: center;
-  justify-content: space-between;
+`,jm=e=>{var t,n,r;return Le(Dm,{isExpense:((t=e.payload)==null?void 0:t.type)==="EXPENSE",children:[me("span",{children:(n=e.payload)==null?void 0:n.desc}),Le("span",{children:["₹",(r=e.payload)==null?void 0:r.amount]})]})},Fm=e=>{const[t,n]=ae.useState(""),[r,l]=ae.useState(e.transactions),o=i=>{if(!i||!i.trim().length){l(e.transactions);return}let u=[...e.transactions];u=u.filter(s=>s.desc.toLowerCase().includes(i.toLowerCase().trim())),l(u)};return ae.useEffect(()=>{o(t)},[e.transactions]),Le(Mm,{children:["Transactions",me("input",{placeholder:"Search",onChange:i=>{n(i.target.value),o(i.target.value)}}),r==null?void 0:r.map(i=>me(jm,{payload:i}))]})},Um=lt.div`
+    background-color: white;
+    color: #0d1d2c;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 22px;
+    font-size: 18px;
+    width: 360px;
+    align-items: center;
+    justify-content: space-between;
 
 `,Bm=e=>{const[t,n]=ae.useState([]),[r,l]=ae.useState(0),[o,i]=ae.useState(0),u=()=>{let c=0,v=0;t.map(p=>p.type==="EXPENSE"?c=c+p.amount:v=v+p.amount),l(c),i(v)};return ae.useEffect(()=>u(),[t]),Le(Um,{children:[me(Im,{expense:r,income:o,addTransaction:c=>{const v=[...t];v.push(c),n(v)}}),t!=null&&t.length?me(Fm,{transactions:t}):""]})},Vm=lt.div`
   display : flex;
