@@ -150,7 +150,7 @@ const Overview = (props) => {
   return (
     <Container>
       <BalanceBox>
-        Balance: ${props.income - props.expense}
+        Balance: ₹{props.income - props.expense}
         <AddTransaction onClick={() => toggleAddTXn((isVisible) => !isVisible)}>
           {isAddTxnVisible ? "CANCEL" : "ADD"}
         </AddTransaction>

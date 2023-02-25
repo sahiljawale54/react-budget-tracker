@@ -34,14 +34,18 @@ const Cell = styled.div`
   justify-content: space-between;
   border-right: 4px solid ${(props) => (props.isExpense ? "red" : "green")};
 `;
+
+
 const TransactionCell = (props) => {
   return (
     <Cell isExpense={props.payload?.type === "EXPENSE"}>
       <span>{props.payload?.desc}</span>
-      <span>${props.payload?.amount}</span>
+      <span>₹{props.payload?.amount}</span>
     </Cell>
   );
 };
+
+
 const Transaction = (props) => {
   const [searchText, updateSearchText] = useState("");
   const [filteredTransaction, updateTxn] = useState(props.transactions);
